@@ -640,6 +640,8 @@
       .packages-grid { margin: 0 16px; grid-template-columns: 1fr; }
       .pkg-card { border-right: none; border-bottom: 0.5px solid var(--border); }
       .pkg-card:last-child { border-bottom: none; }
+      .pkg-category-grid { grid-template-columns: 1fr !important; }
+      .pkg-category-card-left { border-right: none !important; border-bottom: 0.5px solid var(--border); }
 
       .terms-grid { margin: 0 16px; grid-template-columns: 1fr; }
       .terms-block { border-right: none; border-bottom: 0.5px solid var(--border); }
@@ -768,77 +770,162 @@
   </section>
   </div><!-- end captures-overlay -->
   <!-- PACKAGES OVERLAY -->
+  <!-- PACKAGES CATEGORY PICKER -->
   <div id="packages-overlay" style="display:none; position:fixed; inset:0; z-index:200; background:var(--bg); overflow-y:auto; padding: 80px 0 60px;">
   <button onclick="closeOverlay('packages-overlay')" style="position:fixed; top:20px; right:24px; z-index:201; background:transparent; border:0.5px solid var(--border-strong); color:var(--gold); font-family:'Montserrat',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; padding:10px 20px; cursor:pointer;">← Back</button>
   <section class="packages" id="packages">
     <div class="section-header">
-      <div class="section-eyebrow">Pilih Paket Anda</div>
-      <div class="section-title">Wedding Package</div>
+      <div class="section-eyebrow">Pilih Kategori</div>
+      <div class="section-title">Paket Kami</div>
     </div>
 
+    <!-- CATEGORY CARDS -->
+    <div class="pkg-category-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:0; max-width:900px; margin:0 auto; border:0.5px solid var(--border);">
+
+      <!-- WEDDING CONTENT CREATOR MOMENT -->
+      <div class="pkg-category-card-left" onclick="document.getElementById('pkg-wcc-overlay').style.display='block'" style="padding:60px 40px; border-right:0.5px solid var(--border); cursor:pointer; transition:background 0.3s;" onmouseover="this.style.background='#161410'" onmouseout="this.style.background='transparent'">
+        <div style="font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--gold-dim); margin-bottom:20px;">Kategori 01</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:clamp(22px,3.5vw,36px); font-weight:300; color:var(--text); line-height:1.3; margin-bottom:16px;">Wedding Content<br>Creator Moment</div>
+        <div style="width:32px; height:0.5px; background:var(--gold); margin-bottom:24px;"></div>
+        <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--text-muted); margin-bottom:6px;">3 Paket Tersedia</div>
+        <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-top:32px;">Lihat Paket →</div>
+      </div>
+
+      <!-- CINEMATIC MOMENT -->
+      <div onclick="document.getElementById('pkg-cinematic-overlay').style.display='block'" style="padding:60px 40px; cursor:pointer; transition:background 0.3s;" onmouseover="this.style.background='#161410'" onmouseout="this.style.background='transparent'">
+        <div style="font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--gold-dim); margin-bottom:20px;">Kategori 02</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:clamp(22px,3.5vw,36px); font-weight:300; color:var(--text); line-height:1.3; margin-bottom:16px;">Cinematic<br>Moment</div>
+        <div style="width:32px; height:0.5px; background:var(--gold); margin-bottom:24px;"></div>
+        <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--text-muted); margin-bottom:6px;">3 Paket Tersedia</div>
+        <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-top:32px;">Lihat Paket →</div>
+      </div>
+
+    </div>
+
+  </section>
+  </div><!-- end packages-overlay -->
+
+  <!-- WEDDING CONTENT CREATOR MOMENT SUB-OVERLAY -->
+  <div id="pkg-wcc-overlay" style="display:none; position:fixed; inset:0; z-index:210; background:var(--bg); overflow-y:auto; padding: 80px 0 60px;">
+  <button onclick="closeOverlay('pkg-wcc-overlay')" style="position:fixed; top:20px; right:24px; z-index:211; background:transparent; border:0.5px solid var(--border-strong); color:var(--gold); font-family:'Montserrat',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; padding:10px 20px; cursor:pointer;">← Back</button>
+  <section class="packages">
+    <div class="section-header">
+      <div class="section-eyebrow">Pilih Paket Anda</div>
+      <div class="section-title">Wedding Content Creator Moment</div>
+    </div>
     <div class="packages-grid">
 
-      <!-- BASIC -->
       <div class="pkg-card">
-        <div class="pkg-name">Basic</div>
-        <div class="pkg-duration">4 Jam Kerja &nbsp;·&nbsp; Attire Akad</div>
+        <div class="pkg-name">Standart</div>
+        <div class="pkg-duration">3 Jam Kerja</div>
         <ul class="pkg-features">
-          <li>4 story best moment wedding</li>
-          <li>1 trend TikTok by request</li>
-          <li>All file download via Google Drive</li>
+          <li>Untuk acara wisuda, ulang tahun, khitanan, tasyakuran, event, dan kegiatan lainnya</li>
+          <li>Shoot video 3 jam kerja</li>
+          <li>File video dikirim via link Google Drive</li>
         </ul>
         <div class="pkg-price-label">Starting from</div>
-        <div class="pkg-price">IDR 350K</div>
-        <a href="https://wa.me/6283820111387?text=Halo%20Aksara%20Sinematika%2C%20saya%20tertarik%20dengan%20Paket%20Basic%20IDR%20350K." target="_blank" class="pkg-cta">Pesan Sekarang →</a>
+        <div class="pkg-price">IDR 600K</div>
+        <a href="https://wa.me/6283820111387?text=Halo%20Aksara%20Moment%2C%20saya%20tertarik%20dengan%20Paket%20WCC%20Standart%20IDR%20600K." target="_blank" class="pkg-cta">Pesan Sekarang →</a>
       </div>
 
-      <!-- STANDART -->
       <div class="pkg-card featured">
         <div class="pkg-badge">Populer</div>
-        <div class="pkg-name">Standart</div>
-        <div class="pkg-duration">6 Jam Kerja &nbsp;·&nbsp; Attire ke-2 Resepsi</div>
+        <div class="pkg-name">Medium</div>
+        <div class="pkg-duration">5 Jam Kerja</div>
         <ul class="pkg-features">
-          <li>6 story best moment wedding</li>
-          <li>2 trend TikTok by request</li>
-          <li>1 behind the scenes</li>
-          <li>All file download via Google Drive</li>
+          <li>Untuk acara moment spesial seperti prewedding, siraman, engagement, dll</li>
+          <li>Shoot video 5 jam kerja</li>
+          <li>File video dikirim via link Google Drive</li>
         </ul>
         <div class="pkg-price-label">Starting from</div>
-        <div class="pkg-price">IDR 500K</div>
-        <a href="https://wa.me/6283820111387?text=Halo%20Aksara%20Sinematika%2C%20saya%20tertarik%20dengan%20Paket%20Standart%20IDR%20500K." target="_blank" class="pkg-cta">Pesan Sekarang →</a>
+        <div class="pkg-price">IDR 800K</div>
+        <a href="https://wa.me/6283820111387?text=Halo%20Aksara%20Moment%2C%20saya%20tertarik%20dengan%20Paket%20WCC%20Medium%20IDR%20800K." target="_blank" class="pkg-cta">Pesan Sekarang →</a>
       </div>
 
-      <!-- PREMIUM -->
       <div class="pkg-card">
         <div class="pkg-name">Premium</div>
-        <div class="pkg-duration">8 Jam Kerja &nbsp;·&nbsp; Full Day</div>
+        <div class="pkg-duration">8 Jam Kerja</div>
         <ul class="pkg-features">
-          <li>10 story best moment wedding</li>
-          <li>4 trend TikTok by request</li>
-          <li>1 behind the scenes</li>
-          <li>All file download via Google Drive</li>
+          <li>Untuk acara moment wedding (Akad nikah, prosesi adat sunda, &amp; moment resepsi)</li>
+          <li>Shoot video 8 jam kerja</li>
+          <li>File video dikirim via link Google Drive</li>
         </ul>
         <div class="pkg-price-label">Starting from</div>
-        <div class="pkg-price">IDR 700K</div>
-        <a href="https://wa.me/6283820111387?text=Halo%20Aksara%20Sinematika%2C%20saya%20tertarik%20dengan%20Paket%20Premium%20IDR%20700K." target="_blank" class="pkg-cta">Pesan Sekarang →</a>
+        <div class="pkg-price">IDR 1.000K</div>
+        <a href="https://wa.me/6283820111387?text=Halo%20Aksara%20Moment%2C%20saya%20tertarik%20dengan%20Paket%20WCC%20Premium%20IDR%201.000K." target="_blank" class="pkg-cta">Pesan Sekarang →</a>
       </div>
 
     </div>
-
-    <!-- Contact inside packages -->
     <div style="text-align:center; padding: 60px 24px 20px;">
-      <div style="font-family:'Cormorant Garamond',serif; font-size:clamp(20px,4vw,32px); font-style:italic; font-weight:300; color:var(--text-muted); max-width:600px; margin:0 auto 40px; line-height:1.6;">
-        "Every love story deserves to be told beautifully."
-      </div>
-      <a href="https://wa.me/6283820111387?text=Halo%20Aksara%20Sinematika%2C%20saya%20ingin%20tanya%20tentang%20paket%20wedding%20content%20creator." target="_blank" style="display:inline-flex; align-items:center; gap:10px; padding:14px 40px; background:var(--gold); color:#0d0d0d; font-family:'Montserrat',sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; text-decoration:none; font-weight:500; transition:background 0.3s;">
+      <a href="https://wa.me/6283820111387?text=Halo%20Aksara%20Moment%2C%20saya%20ingin%20tanya%20tentang%20paket%20Wedding%20Content%20Creator%20Moment." target="_blank" style="display:inline-flex; align-items:center; gap:10px; padding:14px 40px; background:var(--gold); color:#0d0d0d; font-family:'Montserrat',sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; text-decoration:none; font-weight:500;">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px;fill:#0d0d0d;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Hubungi via WhatsApp
       </a>
       <div style="margin-top:20px; font-size:11px; letter-spacing:3px; color:var(--gold-faint);">083820111387</div>
     </div>
-
   </section>
-  </div><!-- end packages-overlay -->
+  </div><!-- end pkg-wcc-overlay -->
+
+  <!-- CINEMATIC MOMENT SUB-OVERLAY -->
+  <div id="pkg-cinematic-overlay" style="display:none; position:fixed; inset:0; z-index:210; background:var(--bg); overflow-y:auto; padding: 80px 0 60px;">
+  <button onclick="closeOverlay('pkg-cinematic-overlay')" style="position:fixed; top:20px; right:24px; z-index:211; background:transparent; border:0.5px solid var(--border-strong); color:var(--gold); font-family:'Montserrat',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; padding:10px 20px; cursor:pointer;">← Back</button>
+  <section class="packages">
+    <div class="section-header">
+      <div class="section-eyebrow">Pilih Paket Anda</div>
+      <div class="section-title">Cinematic Moment</div>
+    </div>
+    <div class="packages-grid">
+
+      <div class="pkg-card">
+        <div class="pkg-name">Standart</div>
+        <div class="pkg-duration">3 Jam Kerja</div>
+        <ul class="pkg-features">
+          <li>Untuk acara wisuda, ulang tahun, khitanan, tasyakuran, event, dan kegiatan lainnya</li>
+          <li>Shoot video 3 jam kerja</li>
+          <li>File video dikirim via link Google Drive</li>
+        </ul>
+        <div class="pkg-price-label">Starting from</div>
+        <div class="pkg-price">IDR 600K</div>
+        <a href="https://wa.me/6283820111387?text=Halo%20Aksara%20Moment%2C%20saya%20tertarik%20dengan%20Paket%20Cinematic%20Standart%20IDR%20600K." target="_blank" class="pkg-cta">Pesan Sekarang →</a>
+      </div>
+
+      <div class="pkg-card featured">
+        <div class="pkg-badge">Populer</div>
+        <div class="pkg-name">Medium</div>
+        <div class="pkg-duration">5 Jam Kerja</div>
+        <ul class="pkg-features">
+          <li>Untuk acara moment spesial seperti prewedding, siraman, engagement, dll</li>
+          <li>Shoot video 5 jam kerja</li>
+          <li>File video dikirim via link Google Drive</li>
+        </ul>
+        <div class="pkg-price-label">Starting from</div>
+        <div class="pkg-price">IDR 800K</div>
+        <a href="https://wa.me/6283820111387?text=Halo%20Aksara%20Moment%2C%20saya%20tertarik%20dengan%20Paket%20Cinematic%20Medium%20IDR%20800K." target="_blank" class="pkg-cta">Pesan Sekarang →</a>
+      </div>
+
+      <div class="pkg-card">
+        <div class="pkg-name">Premium</div>
+        <div class="pkg-duration">8 Jam Kerja</div>
+        <ul class="pkg-features">
+          <li>Untuk acara moment wedding (Akad nikah, prosesi adat sunda, &amp; moment resepsi)</li>
+          <li>Shoot video 8 jam kerja</li>
+          <li>File video dikirim via link Google Drive</li>
+        </ul>
+        <div class="pkg-price-label">Starting from</div>
+        <div class="pkg-price">IDR 1.000K</div>
+        <a href="https://wa.me/6283820111387?text=Halo%20Aksara%20Moment%2C%20saya%20tertarik%20dengan%20Paket%20Cinematic%20Premium%20IDR%201.000K." target="_blank" class="pkg-cta">Pesan Sekarang →</a>
+      </div>
+
+    </div>
+    <div style="text-align:center; padding: 60px 24px 20px;">
+      <a href="https://wa.me/6283820111387?text=Halo%20Aksara%20Moment%2C%20saya%20ingin%20tanya%20tentang%20paket%20Cinematic%20Moment." target="_blank" style="display:inline-flex; align-items:center; gap:10px; padding:14px 40px; background:var(--gold); color:#0d0d0d; font-family:'Montserrat',sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; text-decoration:none; font-weight:500;">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px;fill:#0d0d0d;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Hubungi via WhatsApp
+      </a>
+      <div style="margin-top:20px; font-size:11px; letter-spacing:3px; color:var(--gold-faint);">083820111387</div>
+    </div>
+  </section>
+  </div><!-- end pkg-cinematic-overlay -->
 
   <!-- TERMS OVERLAY -->
   <div id="terms-overlay" style="display:none; position:fixed; inset:0; z-index:200; background:var(--bg); overflow-y:auto; padding: 80px 0 60px;">
