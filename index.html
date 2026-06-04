@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aksara Sinematika — Wedding Content Creator</title>
+  <title>Aksara Moment — Wedding Content Creator</title>
   <meta name="description" content="Jasa Wedding Content Creator profesional. Abadikan momen pernikahanmu dalam bingkai sinema yang indah." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -193,33 +193,6 @@
     .btn-outline:hover {
       background: rgba(180,150,106,0.08);
       border-color: var(--gold);
-    }
-
-    .scroll-hint {
-      position: absolute;
-      bottom: 36px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      opacity: 0;
-      animation: fadeUp 1s 1.4s forwards;
-    }
-
-    .scroll-hint span {
-      font-size: 9px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gold-faint);
-    }
-
-    .scroll-line {
-      width: 0.5px;
-      height: 40px;
-      background: linear-gradient(to bottom, var(--gold-dim), transparent);
-      animation: scrollPulse 2s 2s infinite;
     }
 
     /* SECTIONS */
@@ -688,7 +661,7 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="nav-brand">Aksara Sinematika</a>
+    <a href="#" class="nav-brand">Aksara Moment</a>
     <ul class="nav-links">
       <li><a href="#packages" onclick="openOverlay(event,'packages-overlay')">Paket</a></li>
       <li><a href="#terms" onclick="openOverlay(event,'terms-overlay')">Ketentuan</a></li>
@@ -703,7 +676,7 @@
   <section class="hero" id="home">
     <div class="hero-grain"></div>
     <div class="hero-eyebrow">Wedding Content Creator</div>
-    <div class="hero-title">Aksara Sinematika</div>
+    <div class="hero-title">Aksara Moment</div>
     <div class="hero-tagline">Mengabadikan setiap momen berharga<br>dalam bingkai sinema</div>
     <div class="hero-contact">Subang, Jawa Barat &nbsp;·&nbsp; 083820111387</div>
     <div class="hero-cta">
@@ -712,9 +685,6 @@
       <a href="#terms" class="btn btn-outline" onclick="openOverlay(event,'terms-overlay')">Syarat &amp; Ketentuan</a>
       <a href="https://wa.me/6283820111387" target="_blank" class="btn btn-outline">Hubungi Kami</a>
     </div>
-    <div class="scroll-hint">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
     </div>
   </section>
 
@@ -907,7 +877,7 @@
         <div class="terms-block-title">File &amp; Penggunaan</div>
         <ul class="terms-list">
           <li>Akses Google Drive tersedia hingga 1 bulan</li>
-          <li>Semua file dapat digunakan sebagai portofolio &amp; promosi Aksara Sinematika</li>
+          <li>Semua file dapat digunakan sebagai portofolio &amp; promosi Aksara Moment</li>
         </ul>
       </div>
     </div>
@@ -916,7 +886,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2025 Aksara Sinematika. All rights reserved.</p>
+    <p>© 2025 Aksara Moment. All rights reserved.</p>
     <p>Wedding Content Creator · Cirebon, Jawa Barat</p>
   </footer>
 
@@ -1042,11 +1012,11 @@
   <div id="audio-player" style="position:fixed;bottom:28px;left:28px;z-index:999;display:flex;align-items:center;">
     <button id="audio-btn" onclick="toggleAudio()" title="Toggle Music" style="background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;opacity:0.85;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'">
       <!-- ICON: music ON (note) -->
-      <svg id="icon-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="#b4966a">
+      <svg id="icon-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="#b4966a" style="display:none;">
         <path d="M9 3v10.55A4 4 0 1 0 11 17V7h4V3H9zm-2 16a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/>
       </svg>
       <!-- ICON: music MUTED (note + slash) -->
-      <svg id="icon-pause" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="#b4966a" style="display:none;">
+      <svg id="icon-pause" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="#b4966a">
         <path d="M9 3v10.55A4 4 0 1 0 11 17V7h4V3H9zm-2 16a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" opacity="0.4"/>
         <line x1="3" y1="3" x2="21" y2="21" stroke="#b4966a" stroke-width="2" stroke-linecap="round"/>
       </svg>
@@ -1063,15 +1033,29 @@
     const iconPause = document.getElementById("icon-pause");
     const progressBar = document.getElementById("audio-progress");
     audio.volume = 0.4;
+
+    // Autoplay musik saat halaman dibuka
+    function tryAutoplay() {
+      audio.play().then(() => {
+        iconPlay.style.display = "block";
+        iconPause.style.display = "none";
+      }).catch(() => {
+        // Autoplay diblokir browser, tunggu interaksi user
+        iconPlay.style.display = "none";
+        iconPause.style.display = "block";
+      });
+    }
+    window.addEventListener("load", tryAutoplay);
+
     function toggleAudio() {
       if (audio.paused) {
         audio.play();
-        iconPlay.style.display = "none";
-        iconPause.style.display = "block";
-      } else {
-        audio.pause();
         iconPlay.style.display = "block";
         iconPause.style.display = "none";
+      } else {
+        audio.pause();
+        iconPlay.style.display = "none";
+        iconPause.style.display = "block";
       }
     }
     function seekAudio(e) {
