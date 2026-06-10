@@ -104,7 +104,7 @@
     .hero-video-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(10, 8, 5, 0.62);
+      background: rgba(10, 8, 5, 0.72);
       z-index: 1;
       pointer-events: none;
     }
@@ -154,35 +154,38 @@
     .hero-title {
       font-family: 'Montserrat', sans-serif;
       font-size: clamp(22px, 5vw, 38px);
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: clamp(8px, 2vw, 16px);
       text-transform: uppercase;
-      color: var(--text);
-      border: 0.5px solid var(--border-strong);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.6);
       display: inline-block;
       padding: clamp(14px, 3vw, 20px) clamp(20px, 5vw, 48px);
       margin-bottom: 28px;
       opacity: 0;
       animation: fadeUp 1s 0.4s forwards;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.8);
     }
 
     .hero-tagline {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(16px, 3vw, 22px);
       font-style: italic;
-      color: var(--text-muted);
+      color: #e8d8b0;
       margin-bottom: 8px;
       opacity: 0;
       animation: fadeUp 1s 0.6s forwards;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.9);
     }
 
     .hero-contact {
       font-size: 11px;
       letter-spacing: 3px;
-      color: var(--gold-dim);
+      color: #c8a96e;
       margin-top: 12px;
       opacity: 0;
       animation: fadeUp 1s 0.8s forwards;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.9);
     }
 
     .hero-cta {
@@ -1011,7 +1014,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2025 Aksara Moment. All rights reserved.</p>
+    <p>© 2026 Aksara Moment. All rights reserved.</p>
     <p>Subang, Jawa Barat</p>
   </footer>
 
